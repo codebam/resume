@@ -1,0 +1,157 @@
+\documentclass[letterpaper,11pt]{article}
+
+\setlength{\voffset}{0.1in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\paperheight}{11in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{11in}
+\setlength{\textheight}{9.5in}
+\setlength{\topmargin}{-0.25in}
+\setlength{\textwidth}{7in}
+\setlength{\topskip}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\evensidemargin}{-0.25in}
+
+%\usepackage{tgheros}
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{fullpage}
+%\usepackage{shading} % mysection
+%\usepackage[utf8]{inputenc}
+\usepackage{color,xcolor}
+\usepackage[%
+    pdfstartview=FitH,%
+    %%CJKbookmarks=true,%
+    bookmarks=true,%
+    bookmarksnumbered=true,%
+    bookmarksopen=true,%
+    colorlinks=true,%
+    citecolor=black,%
+    linkcolor=black,%
+    anchorcolor=green,%
+    urlcolor=black%
+]{hyperref}
+\usepackage{tabularx}
+
+%\textheight=9.0in
+\pagestyle{empty}
+\raggedbottom{}
+\raggedright{}
+\setlength{\tabcolsep}{0in}
+
+\linespread{0.7}
+
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+%\newcommand{\resheading}[1]{{\large \parashade[.9]{sharpcorners}{\textbf{#1 \vphantom{p\^{E}}}}}}
+\newcommand{\mysection}[1]{\vspace{5pt} {\bfseries \textsl{#1}} \\ {\color{gray} \rule[5pt]{\textwidth}{1pt}}}
+\newcommand{\ressubheading}[4]{\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+%\newcommand{\mysection}[1]{\vspace{5pt} {\bfseries \textsl{#1}} \\ {\color{gray} \rule[5pt]{\textwidth}{0.3pt}}}
+
+\begin{document}
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+\textbf{\Large Sean Behan}  & 289--923--7907\\
+    1571 Otonabee Drive &  \href{mailto:seanwbehan@gmail.com}{seanwbehan@gmail.com} \\
+    Pickering, ON L1V 6T6 & \href{https://seanbehan.io}{seanbehan.io}\\
+\end{tabular*}
+\\
+
+\vspace{0.1in}
+
+\mysection{Education}
+\begin{itemize}
+\item
+	\ressubheading{Trent University}{Peterborough, ON}{Honors B.Sc., Computer Science}{Sep. 2016--Present}
+	\begin{itemize}
+		\resitem{Relevant courses: Programming for Computing/Information Systems, Software Design, Linear Algebra, Computer Forensics}
+	\end{itemize}
+\iffalse{} % comment
+\item
+	\ressubheading{Dunbarton High School}{Pickering, ON}{Graduated with Diploma}{Sep. 2012--June 2016}
+\fi
+\end{itemize}
+
+\mysection{Experience}
+\begin{itemize}
+\item
+	\ressubheading{Amberlea Church}{Pickering, ON}{Volunteer role for summer camp and breakfast club}{July 2014--Aug. 2014}
+	\begin{itemize}
+		\resitem{Organized and prepared activities for children}
+		\resitem{Responsible for the safety of children}
+	\end{itemize}
+\end{itemize}
+
+%\iffalse{} % this is a multi-line comment
+\mysection{Extra Curricular}
+\begin{itemize}
+\item
+	\ressubheading{IRC support}{}{Provides technical support on the Frenode IRC network}{March 2013--Present}
+\item
+	%\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
+	\ressubheading{Hackathons}{ON, QC}{Attended several Hackathon events across Ontario and Quebec}{Nov. 2016--Apr. 2017}
+	
+\item
+	\ressubheading{Cisco Spark Workshop}{Toronto, ON}{Attended workshop about the Cisco Spark API}{Nov. 2016}
+	
+\item
+	\ressubheading{AWS Courses}{}{Completed courses on the AWS Educate platform}{June 2017}
+	\begin{itemize}
+		\resitem{Application Developer certification}
+	\end{itemize}
+\end{itemize}
+	%\end{tabular*}
+%\fi
+
+\mysection{Projects}
+\begin{itemize}
+\item
+	\ressubheading{DuckDuckGo Bot}{}{Chat Bot for the Telegram chat platform that returns search URLs}{July 2016}
+	\begin{itemize}
+		\resitem{Learned the Telegram API in Python}
+		\resitem{Used the data parsing libraries in Python to form URLs for queries}
+	\end{itemize}
+
+\item
+\ressubheading{Cubes VR}{}{Virtual reality building game for the HTC Vive}{Nov. 2016}
+
+\item
+	\ressubheading{Stock Helper Bot}{}{Chat Bot for the Cisco Spark platform that returns ticker info}{Jan. 2017}
+	\begin{itemize}
+		\resitem{Made in 36 hours by a team of 4}
+		\resitem{Learned Node.js and the Cisco Spark API}
+	\end{itemize}
+\end{itemize}
+
+\mysection{Awards}
+%\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
+%\vspace{-6pt} \\
+%\begin{tabularx}{\textwidth}{Xl}
+\begin{description}
+	\item[Project Management Award:]
+	Trent University's Electric City Hacks Hackathon
+	\item[Certificate of Technology:] High School
+\end{description}
+%Project Management Award & Trent University's hackathon\\
+%Certificate of Technology & High School\\
+%\end{tabularx}
+%\vspace{-2pt}
+%\end{tabular*}
+
+\mysection{Skills}
+\begin{description}
+\item[Languages:]
+Python, Java, C\#, C, Bash, HTML, CSS, JavaScript, Rust, \LaTeX{}
+\item[Operating Systems:]
+GNU/Linux (5 years), Windows Server, BSD
+\item[Applications:]
+AWS, Docker, KVM/QEMU, Vim, Android Studio, MS Office
+\item[Interests:]
+GNU/Linux, EFF, security, machine learning, music
+\item[Miscellaneous:]
+Fast learner, positive attitude, strong communication, excellent troubleshooting, great at problem solving, good teams skills
+\end{description}
+
+\end{document}
