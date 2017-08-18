@@ -1,14 +1,14 @@
 # LaTeX Makefile
-FILE=resume.tex
+FILE=resume
 
-all: pdf png
+all: $(FILE).tex pdf png
 
-pdf: $(FILE)
-	tectonic $(FILE)
+pdf:
+	tectonic $(FILE).tex
 
 png: pdf
-	convert -density 300 resume.pdf resume.png
-	convert -flatten resume.png resume-white.png
+	convert -density 300 $(FILE).pdf $(FILE).png
+	convert -flatten $(FILE).pdf $(FILE)-white.png
 
 .PHONY: clean
 clean:
