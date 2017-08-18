@@ -3,12 +3,12 @@ CC=tectonic
 FILE=resume
 CONVERT=convert
 
-all: $(FILE).tex pdf png
+all: $(FILE).tex $(FILE).pdf $(FILE).png
 
-pdf:
+$(FILE).pdf: $(FILE).tex
 	$(CC) $(FILE).tex
 
-png: pdf
+$(FILE).png: $(FILE).pdf
 	$(CONVERT) -density 300 $(FILE).pdf $(FILE).png
 	$(CONVERT) -flatten $(FILE).pdf $(FILE)-white.png
 
