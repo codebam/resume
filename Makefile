@@ -10,7 +10,7 @@ $(FILE).pdf: $(FILE).tex
 
 $(FILE).png: $(FILE).pdf
 	$(CONVERT) -density 300 $(FILE).pdf $(FILE).png
-	$(CONVERT) -flatten $(FILE).pdf $(FILE)-white.png
+	$(CONVERT) $(FILE).png -background white -alpha remove $(FILE)-white.png
 
 .PHONY: clean
 clean:
