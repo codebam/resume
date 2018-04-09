@@ -5,6 +5,9 @@ CONVERT=convert
 
 all: $(FILE).tex $(FILE).pdf $(FILE).png
 
+pdf: $(FILE).pdf
+png: $(FILE).png
+
 $(FILE).pdf: $(FILE).tex
 	$(CC) $(FILE).tex
 
