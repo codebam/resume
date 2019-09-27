@@ -1,6 +1,6 @@
 # Sean Behan's Resume
 
-![](https://github.com/codebam/resume/releases/latest/download/resume.png?raw=true)
+![](https://github.com/codebam/resume/releases/latest/download/resume.png)
 
 ## Requirements to use Makefile
 
