@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: archlinux/base:latest
+
+    steps:
+      - checkout
+
+      - run:
+          name: Update package lists
+          command: pacman -Sy --noconfirm
+
+      - run:
+          name: Install dependencies
+          command: pacman -S --noconfirm base-devel imagemagick git harfbuzz-icu go
+
+      - run:
+          name: Install Rust nightly
+          command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > install-rust.sh; chmod +x install-rust.sh; ./install-rust.sh -y --default-toolchain nightly; export PATH=$HOME/.cargo/bin:$PATH
+
+      - run:
+          name: Install tectonic
+          command: export PATH=$HOME/.cargo/bin:$PATH; cargo install tectonic
+
+      - run:
+          name: Make resume
+          command: export PATH=$HOME/.cargo/bin:$PATH; tectonic resume.tex
+
+      - run:
+          name: Install ghr
+          command: go get -u github.com/tcnksm/ghr
+
+      - run:
+          name: Upload release to GitHub
+          command: export PATH=$HOME/go/bin:$PATH; ghr "$(date +'%s')" resume.pdf
+
+    artifacts:
+    paths:
+      - resume.pdf
