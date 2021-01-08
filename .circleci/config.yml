@@ -29,7 +29,7 @@ jobs:
 
       - run:
           name: Make resume images
-          command: rm /etc/ImageMagick-7/policy.xml; convert -density 300 resume.pdf -background white -alpha remove resume.png
+          command: rm /etc/ImageMagick-7/policy.xml; convert -density 300 resume.pdf -colorspace RGB -background white -alpha remove resume.png
 
       - run:
           name: Install ghr
@@ -37,4 +37,4 @@ jobs:
 
       - run:
           name: Upload release to GitHub
-          command: mkdir upload; cp resume.pdf resume.png upload; export PATH=$HOME/go/bin:$PATH; ghr "$(date +'%s')" upload
+          command: mkdir upload; cp resume.pdf upload; export PATH=$HOME/go/bin:$PATH; ghr "$(date +'%s')" upload
