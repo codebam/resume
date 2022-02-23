@@ -13,19 +13,15 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: apk add imagemagick git harfbuzz-icu go g++ ghostscript rust cargo openssl-dev fontconfig-dev freetype-dev harfbuzz-dev graphite2-dev libpng-dev
+          command: apk add imagemagick git harfbuzz-icu go g++ ghostscript rust cargo openssl-dev fontconfig-dev freetype-dev harfbuzz-dev graphite2-dev libpng-dev make
 
       - run:
           name: Install tectonic
           command: export PATH=$HOME/.cargo/bin:$PATH; cargo install tectonic
 
       - run:
-          name: Make resume
-          command: export PATH=$HOME/.cargo/bin:$PATH; tectonic resume.tex
-
-      - run:
-          name: Make resume images
-          command: rm /etc/ImageMagick-7/policy.xml; convert -density 300 resume.pdf -colorspace RGB -background white -alpha remove resume.png
+          name: Run Makefile
+          command: export PATH=$HOME/.cargo/bin:$PATH; rm /etc/ImageMagick-7/policy.xml; make
 
       - run:
           name: Install ghr
@@ -33,4 +29,4 @@ jobs:
 
       - run:
           name: Upload release to GitHub
-          command: mkdir upload; cp resume.pdf upload; export PATH=$HOME/go/bin:$PATH; ghr "$(date +'%s')" upload
+          command: mkdir upload; cp resume.pdf upload; cp resume-white.png; upload/resume.png; export PATH=$HOME/go/bin:$PATH; ghr "$(date +'%s')" upload
