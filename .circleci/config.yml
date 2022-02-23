@@ -13,15 +13,11 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: apk add imagemagick git harfbuzz-icu go g++ ghostscript rust cargo openssl-dev fontconfig-dev freetype-dev harfbuzz-dev graphite2-dev libpng-dev
-
-      - run:
-          name: Install tectonic
-          command: export PATH=$HOME/.cargo/bin:$PATH; cargo install tectonic
+          command: apk add imagemagick git harfbuzz-icu go g++ ghostscript rust cargo openssl-dev fontconfig-dev freetype-dev harfbuzz-dev graphite2-dev libpng-dev tectonic
 
       - run:
           name: Make resume
-          command: export PATH=$HOME/.cargo/bin:$PATH; tectonic resume.tex
+          command: tectonic resume.tex
 
       - run:
           name: Make resume images
