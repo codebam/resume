@@ -21,7 +21,7 @@ jobs:
 
       - run:
           name: Run Makefile
-          command: export PATH=$HOME/.cargo/bin:$PATH; rm /etc/ImageMagick-7/policy.xml; make
+          command: export PATH=$HOME/.cargo/bin:$PATH; make
 
       - run:
           name: Install ghr
