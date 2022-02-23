@@ -12,8 +12,8 @@ $(FILE).pdf: $(FILE).tex
 	$(CC) $(FILE).tex
 
 $(FILE).png: $(FILE).pdf
-	$(CONVERT) -density 300 $(FILE).pdf $(FILE).png
-	$(CONVERT) $(FILE).png -background white -alpha remove $(FILE)-white.png
+	$(CONVERT) -density 300 -colorspace RGB $(FILE).pdf $(FILE).png
+	$(CONVERT) $(FILE)-0.png -colorspace RGB -background white -alpha remove $(FILE)-white.png
 
 .PHONY: clean
 clean:
