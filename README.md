@@ -1,5 +1,5 @@
 [![CircleCI](https://circleci.com/gh/codebam/resume.svg?style=svg)](https://circleci.com/gh/codebam/resume)
-![](https://github.com/codebam/resume/releases/latest/download/resume-0.png)
+![](https://github.com/codebam/resume/releases/latest/download/resume-white.png)
 
 ## Requirements to use Makefile
 
