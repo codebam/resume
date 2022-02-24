@@ -2,8 +2,9 @@
 CC=tectonic
 FILE=resume
 CONVERT=convert
+GHR=ghr
 
-all: $(FILE).tex $(FILE).pdf $(FILE).png
+all: $(FILE).tex $(FILE).pdf $(FILE)?*.png
 
 pdf: $(FILE).pdf
 png: $(FILE).png
@@ -11,10 +12,13 @@ png: $(FILE).png
 $(FILE).pdf: $(FILE).tex
 	$(CC) $(FILE).tex
 
-$(FILE).png: $(FILE).pdf
+$(FILE)?*.png: $(FILE).pdf
 	$(CONVERT) -density 300 -colorspace RGB $(FILE).pdf $(FILE).png
-	$(CONVERT) $(FILE)-0.png -colorspace RGB -background white -alpha remove $(FILE)-white.png
+	$(CONVERT) $(FILE)*.png -colorspace RGB -background white -alpha remove $(FILE)-white.png
+
+upload: $(FILE).pdf $(FILE)?*.png
+	mkdir upload; cp $(FILE)* upload; $(GHR) "$(date +'%s')" upload
 
 .PHONY: clean
 clean:
-	rm *.aux *.blg *.out *.bbl *.log
+	rm -rf *.png *.pdf upload

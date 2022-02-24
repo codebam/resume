@@ -12,13 +12,9 @@ jobs:
           command: apk add git imagemagick go tectonic make
 
       - run:
-          name: Run Makefile
-          command: export PATH=$HOME/.cargo/bin:$PATH; make
-
-      - run:
           name: Install ghr
-          command: go install github.com/tcnksm/ghr@latest
+          command: go install github.com/tcnksm/ghr@latest; export PATH=$HOME/go/bin:$PATH
 
       - run:
-          name: Upload release to GitHub
-          command: mkdir upload; cp resume.pdf resume-*.png upload; export PATH=$HOME/go/bin:$PATH; ghr "$(date +'%s')" upload
+          name: Run Makefile
+          command: export PATH=$HOME/.cargo/bin:$PATH; make upload
