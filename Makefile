@@ -17,7 +17,7 @@ $(FILE)?*.png: $(FILE).pdf
 	$(CONVERT) $(FILE)*.png -colorspace RGB -background white -alpha remove $(FILE)-white.png
 
 upload: $(FILE).pdf $(FILE)?*.png
-	mkdir upload; cp $(FILE)* upload; $(GHR) "$(date +'%s')" upload
+	mkdir upload; cp $(FILE)* upload; $(GHR) "$$(date +'%s')" upload
 
 .PHONY: clean
 clean:
