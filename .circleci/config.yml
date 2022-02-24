@@ -2,22 +2,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: alpine
+      - image: alpine:edge
 
     steps:
       - checkout
 
       - run:
-          name: Update package lists
-          command: apk update
-
-      - run:
           name: Install dependencies
-          command: apk add imagemagick git harfbuzz-icu go g++ ghostscript rust cargo openssl-dev fontconfig-dev freetype-dev harfbuzz-dev graphite2-dev libpng-dev make
-
-      - run:
-          name: Install tectonic
-          command: export PATH=$HOME/.cargo/bin:$PATH; cargo install tectonic
+          command: apk add imagemagick git harfbuzz-icu go g++ ghostscript rust cargo openssl-dev fontconfig-dev freetype-dev harfbuzz-dev graphite2-dev libpng-dev tectonic make
 
       - run:
           name: Run Makefile
