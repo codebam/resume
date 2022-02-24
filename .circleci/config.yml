@@ -13,8 +13,7 @@ jobs:
 
       - run:
           name: Install ghr
-          command: go install github.com/tcnksm/ghr@latest; export PATH=$HOME/go/bin:$PATH
-
+          command: go install github.com/tcnksm/ghr@latest
       - run:
           name: Run Makefile
-          command: export PATH=$HOME/.cargo/bin:$PATH; make upload
+          command: export PATH=$HOME/go/bin:$PATH; make upload
