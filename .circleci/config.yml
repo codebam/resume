@@ -9,7 +9,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: apk add imagemagick git harfbuzz-icu go g++ ghostscript rust cargo openssl-dev fontconfig-dev freetype-dev harfbuzz-dev graphite2-dev libpng-dev tectonic make
+          command: apk add imagemagick go tectonic make
 
       - run:
           name: Run Makefile
@@ -17,7 +17,7 @@ jobs:
 
       - run:
           name: Install ghr
-          command: go get -u github.com/tcnksm/ghr
+          command: go install github.com/tcnksm/ghr@latest
 
       - run:
           name: Upload release to GitHub
