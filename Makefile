@@ -1,6 +1,6 @@
 # LaTeX Makefile
-TECTONIC=tectonic
 FILE=resume
+TECTONIC=tectonic
 CONVERT=convert
 GHR=ghr
 
