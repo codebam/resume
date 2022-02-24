@@ -14,3 +14,9 @@ jobs:
       - run:
           name: Run Makefile
           command: export PATH=$HOME/go/bin:$PATH; make upload
+
+          # Set GITHUB_TOKEN to a GitHub personal access token in
+          # CircleCI -> Project Settings -> Environment Variables
+          #
+          # The token must have repository access to be able to upload a new
+          # release
