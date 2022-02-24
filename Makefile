@@ -13,6 +13,7 @@ $(FILE).pdf: $(FILE).tex
 	$(CC) $(FILE).tex
 
 $(FILE)?*.png: $(FILE).pdf
+	rm -rf $(FILE)*.png
 	$(CONVERT) -density 300 -colorspace RGB $(FILE).pdf $(FILE).png
 	$(CONVERT) $(FILE)*.png -colorspace RGB -background white -alpha remove $(FILE)-white.png
 
