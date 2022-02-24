@@ -1,5 +1,5 @@
 # LaTeX Makefile
-CC=tectonic
+TECTONIC=tectonic
 FILE=resume
 CONVERT=convert
 GHR=ghr
@@ -10,7 +10,7 @@ pdf: $(FILE).pdf
 png: $(FILE)?*.png
 
 $(FILE).pdf: $(FILE).tex
-	$(CC) $(FILE).tex
+	$(TECTONIC) $(FILE).tex
 
 $(FILE)?*.png: $(FILE).pdf
 	rm -rf $(FILE)*.png
