@@ -4,7 +4,7 @@ TECTONIC=tectonic
 CONVERT=convert
 GHR=ghr
 
-all: $(FILE).tex $(FILE).pdf $(FILE)?*.png
+all: $(FILE).tex pdf png
 
 pdf: $(FILE).pdf
 png: $(FILE)?*.png
