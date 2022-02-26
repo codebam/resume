@@ -1,17 +1,11 @@
 \documentclass[letterpaper,11pt]{article}
 
-\setlength{\voffset}{0.1in}
-\setlength{\paperwidth}{8.5in}
-\setlength{\paperheight}{11in}
-\setlength{\headheight}{0in}
-\setlength{\headsep}{0in}
-\setlength{\textheight}{11in}
-\setlength{\textheight}{9.5in}
-\setlength{\topmargin}{-0.25in}
-\setlength{\textwidth}{7in}
-\setlength{\topskip}{0in}
-\setlength{\oddsidemargin}{-0.25in}
-\setlength{\evensidemargin}{-0.25in}
+\usepackage{geometry}
+\geometry{letterpaper, portrait, margin=0.65in}
+\pagestyle{empty}
+\raggedright{}
+\setlength{\tabcolsep}{0in}
+\linespread{0.7}
 
 \usepackage{color,xcolor}
 \usepackage[%
@@ -27,13 +21,6 @@
 ]{hyperref}
 \usepackage{tabularx}
 \usepackage{libertine}
-
-\pagestyle{empty}
-\raggedbottom{}
-\raggedright{}
-\setlength{\tabcolsep}{0in}
-
-\linespread{0.7}
 
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
 \newcommand{\mysection}[1]{\vspace{5pt} {\bfseries \textsl{#1}} \\ {\color{gray} \rule[5pt]{\textwidth}{1pt}}}
@@ -52,9 +39,6 @@
     & \href{https://www.linkedin.com/in/sean-behan/}{www.linkedin.com/in/sean-behan}\\
     & \href{https://github.com/codebam/}{github.com/codebam}\\
 \end{tabular*}
-\\
-
-\vspace{0.1in}
 
 \mysection{Education}
 \begin{itemize}
@@ -111,11 +95,8 @@
     \item[Applications:]
         Git, Docker/Podman, Amazon Web Services, KVM/QEMU, MS Office
     \item[Interests:]
-        Functional Programming, Linux Kernel Development, Computer Security, Machine Learning
+        Functional Programming, Serverless Computing, Linux Kernel Development, Computer Security
 \end{description}
-\end{document}
-
-\pagebreak
 
 \mysection{Awards and Certificates}
 \begin{description}
@@ -123,6 +104,9 @@
     \item Amazon Application Developer Certification from AWS Educate
     \item Project Management Award at Trent University's Electric City Hacks Hackathon 2016
 \end{description}
+\end{document}
+
+\pagebreak
 
 \mysection{Extra Curricular}
 \begin{itemize}
