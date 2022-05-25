@@ -9,7 +9,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
+          command: apk add git imagemagick go tectonic icu-data-full make; go install github.com/tcnksm/ghr@latest
 
       - run:
           name: Run Makefile
