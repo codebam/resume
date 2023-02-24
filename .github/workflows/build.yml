@@ -16,13 +16,13 @@ jobs:
         branch: edge
     - run: apk add alpine-conf
       shell: alpine.sh --root {0}
-    - run: setup-apkcache ${{ steps.alpine-target.outputs.root-path }}/var/apk/cache
+    - run: setup-apkcache var/apk/cache
       shell: alpine.sh --root {0}
     - id: alpine-cache
       uses: actions/cache@v3
       with:
         path: |
-          ${{ steps.alpine-target.outputs.root-path }}/var/apk/cache
+          var/apk/cache
         key: alpine-edge-apkcache
         restore-keys: alpine-edge-apkcache
     - uses: actions/checkout@v3
