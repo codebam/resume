@@ -19,15 +19,15 @@ jobs:
         key: ${{ runner.os }}-cache
     - uses: actions/checkout@v3
     - uses: jirutka/setup-alpine@v1
-        with:
-          branch: edge
+      with:
+        branch: edge
     - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
       shell: alpine.sh --root {0}
     - run: export PATH=$HOME/go/bin:$PATH; make upload
       shell: alpine.sh --root {0}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        - name: Save Primes
+    - name: Save Primes
     - id: alpine-cache-save
       uses: actions/cache/save@v3
       with:
