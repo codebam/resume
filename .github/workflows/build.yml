@@ -10,17 +10,17 @@ jobs:
   make-release:
     runs-on: ubuntu-latest
     steps:
+    - uses: jirutka/setup-alpine@v1
+      with:
+        branch: edge
     - id: alpine-cache
     - uses: actions/cache/restore@v3
       with:
         path: |
-          /etc/apk
-          $HOME/.cache/Tectonic
-        key: ${{ runner.os }}-cache
+          ${{ steps.alpine-target.outputs.root-path }}/etc/apk
+          ${{ steps.alpine-target.outputs.root-path }}$HOME/.cache/Tectonic
+        key: alpine-edge-cache
     - uses: actions/checkout@v3
-    - uses: jirutka/setup-alpine@v1
-      with:
-        branch: edge
     - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
       shell: alpine.sh --root {0}
     - run: export PATH=$HOME/go/bin:$PATH; make upload
@@ -31,6 +31,6 @@ jobs:
     - uses: actions/cache/save@v3
       with:
         path: |
-          /etc/apk
-          $HOME/.cache/Tectonic
-        key: ${{ runner.os }}-cache
+          ${{ steps.alpine-target.outputs.root-path }}/etc/apk
+          ${{ steps.alpine-target.outputs.root-path }}$HOME/.cache/Tectonic
+        key: alpine-edge-cache
