@@ -17,6 +17,6 @@ jobs:
       - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
         shell: alpine.sh --root {0}
       - run: export PATH=$HOME/go/bin:$PATH; make upload
-        shell: alpine.sh {0}
+        shell: alpine.sh --root {0}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
