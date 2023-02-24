@@ -29,3 +29,5 @@ jobs:
       shell: alpine.sh --root {0}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - run: chmod 777 /gopath /tectonic
+      shell: alpine.sh --root {0}
