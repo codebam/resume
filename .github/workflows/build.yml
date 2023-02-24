@@ -15,12 +15,14 @@ jobs:
       with:
         branch: edge
     - id: alpine-cache
-      uses: actions/cache/restore@v3
+      uses: actions/cache@v3
       with:
         path: |
           ${{ steps.alpine-target.outputs.root-path }}/etc/apk
           ${{ steps.alpine-target.outputs.root-path }}/root
-        key: alpine-edge-cache
+        key: alpine-edge-${{ hashFiles(${{ steps.alpine-target.outputs.root-path }} + '/etc/apk') }}
+        restore-keys: |
+          alpine-edge-
     - uses: actions/checkout@v3
     - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
       shell: alpine.sh --root {0}
@@ -28,10 +30,3 @@ jobs:
       shell: alpine.sh --root {0}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - id: alpine-cache-save
-      uses: actions/cache/save@v3
-      with:
-        path: |
-          ${{ steps.alpine-target.outputs.root-path }}/etc/apk
-          ${{ steps.alpine-target.outputs.root-path }}/root
-        key: alpine-edge-cache
