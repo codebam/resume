@@ -20,9 +20,11 @@ jobs:
         path: |
           ${{ steps.alpine-target.outputs.root-path }}/etc/apk
           ${{ steps.alpine-target.outputs.root-path }}/root
-        key: alpine-edge-${{ hashFiles(steps.alpine-target.outputs.root-path) }}
+        key: alpine-edge-${{ hashFiles(ETC_PATH) }}
         restore-keys: |
           alpine-edge-
+      env:
+        ETC_PATH: ${{ steps.alpine-target.outputs.root-path }}/etc
     - uses: actions/checkout@v3
     - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
       shell: alpine.sh --root {0}
