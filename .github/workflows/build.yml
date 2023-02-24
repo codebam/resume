@@ -24,7 +24,6 @@ jobs:
           ${{ steps.alpine-target.outputs.root-path }}/var
           ${{ steps.alpine-target.outputs.root-path }}/lib
           ${{ steps.alpine-target.outputs.root-path }}/sbin
-          ${{ steps.alpine-target.outputs.root-path }}/root
         key: alpine-edge-tectonic
         restore-keys: alpine-edge-tectonic
     - uses: actions/checkout@v3
