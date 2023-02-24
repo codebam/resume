@@ -3,6 +3,8 @@ FILE=resume
 TECTONIC=tectonic
 CONVERT=convert
 GHR=ghr
+USER=codebam
+REPO=resume
 
 all: $(FILE).tex pdf png
 
@@ -20,7 +22,7 @@ $(FILE)?*.png: $(FILE).pdf
 upload: $(FILE).pdf $(FILE)?*.png
 	mkdir upload
 	cp $(FILE)* upload
-	$(GHR) -u codebam "$$(date +'%s')" upload
+	$(GHR) -u $(USER) -r $(REPO) "$$(date +'%s')" upload
 
 .PHONY: clean
 clean:
