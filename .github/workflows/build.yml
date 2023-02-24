@@ -16,6 +16,8 @@ jobs:
         branch: edge
     - run: apk add alpine-conf
       shell: alpine.sh --root {0}
+    - run: setup-apkcache /etc/apk/cache
+      shell: alpine.sh --root {0}
     - id: alpine-cache
       uses: actions/cache@v3
       with:
