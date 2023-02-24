@@ -10,7 +10,7 @@ jobs:
   make-release:
     runs-on: ubuntu-latest
     steps:
-      id: alpine-cache
+    - id: alpine-cache
       uses: actions/cache/restore@v3
       with:
         path: |
