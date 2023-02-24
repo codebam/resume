@@ -20,7 +20,7 @@ jobs:
         path: |
           ${{ steps.alpine-target.outputs.root-path }}/etc/apk
           ${{ steps.alpine-target.outputs.root-path }}/root
-        key: alpine-edge-${{ hashFiles(ETC_PATH) }}
+        key: alpine-edge-${{ hashFiles($ETC_PATH) }}
         restore-keys: |
           alpine-edge-
       env:
