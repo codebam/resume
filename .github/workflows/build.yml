@@ -18,16 +18,15 @@ jobs:
       uses: actions/cache@v3
       with:
         path: |
-          ${{ steps.alpine-target.outputs.root-path }}/gopath
-          ${{ steps.alpine-target.outputs.root-path }}/tectonic/.cache/Tectonic
+          /home/runner/work/_temp/
         key: alpine-edge-tectonic
         restore-keys: alpine-edge-tectonic
     - uses: actions/checkout@v3
-    - run: apk add git imagemagick go tectonic make; GOPATH=/gopath go install github.com/tcnksm/ghr@latest
+    - run: apk add git imagemagick go tectonic make; GOPATH=/home/runner/work/_temp/gopath go install github.com/tcnksm/ghr@latest
       shell: alpine.sh --root {0}
-    - run: export HOME=/tectonic export PATH=/gopath/bin:$PATH; make upload
+    - run: export HOME=/home/runner/work/_temp/tectonic export PATH=/home/runner/work/_temp/gopath/bin:$PATH; make upload
       shell: alpine.sh --root {0}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: chmod -R 777 /gopath /tectonic
+    - run: chmod -R 777 /home/runner/work/_temp
       shell: alpine.sh --root {0}
