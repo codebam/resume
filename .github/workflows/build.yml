@@ -1,0 +1,17 @@
+name: make release
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "*"
+
+runs-on: ubuntu-latest
+steps:
+  - uses: jirutka/setup-alpine@v1
+    with:
+      branch: edge
+  - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
+  - run: export PATH=$HOME/go/bin:$PATH; make upload
+    env:
+      GITHUB_TOKEN: {{ secrets.GITHUB_TOKEN }}
