@@ -18,11 +18,16 @@ jobs:
       uses: actions/cache@v3
       with:
         path: |
-          ${{ steps.alpine-target.outputs.root-path }}/etc/apk
+          ${{ steps.alpine-target.outputs.root-path }}/etc
+          ${{ steps.alpine-target.outputs.root-path }}/usr
+          ${{ steps.alpine-target.outputs.root-path }}/bin
+          ${{ steps.alpine-target.outputs.root-path }}/var
+          ${{ steps.alpine-target.outputs.root-path }}/lib
+          ${{ steps.alpine-target.outputs.root-path }}/sbin
           ${{ steps.alpine-target.outputs.root-path }}/root
-        key: alpine-edge-${{ hashFiles('/home/runner/rootfs/alpine-edge-x86_64/etc/apk/**') }}
+        key: alpine-edge-tectonic-${{ hashFiles('/home/runner/rootfs/alpine-edge-x86_64/usr/bin/tectonic') }}
         restore-keys: |
-          alpine-edge-
+          alpine-edge-tectonic-
     - uses: actions/checkout@v3
     - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
       shell: alpine.sh --root {0}
