@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - id: alpine-target
-    - uses: jirutka/setup-alpine@v1
+      uses: jirutka/setup-alpine@v1
       with:
         branch: edge
     - id: alpine-cache
-    - uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v3
       with:
         path: |
           ${{ steps.alpine-target.outputs.root-path }}/etc/apk
@@ -29,7 +29,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - id: alpine-cache-save
-    - uses: actions/cache/save@v3
+      uses: actions/cache/save@v3
       with:
         path: |
           ${{ steps.alpine-target.outputs.root-path }}/etc/apk
