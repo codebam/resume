@@ -14,18 +14,17 @@ jobs:
       uses: jirutka/setup-alpine@v1
       with:
         branch: edge
+    - run: apk add alpine-conf
+      shell: alpine.sh --root {0}
+    - run: setup-apkcache /var/apk/cache
+      shell: alpine.sh --root {0}
     - id: alpine-cache
       uses: actions/cache@v3
       with:
         path: |
-          ${{ steps.alpine-target.outputs.root-path }}/etc
-          ${{ steps.alpine-target.outputs.root-path }}/usr
-          ${{ steps.alpine-target.outputs.root-path }}/bin
-          ${{ steps.alpine-target.outputs.root-path }}/var
-          ${{ steps.alpine-target.outputs.root-path }}/lib
-          ${{ steps.alpine-target.outputs.root-path }}/sbin
-        key: alpine-edge-tectonic
-        restore-keys: alpine-edge-tectonic
+          ${{ steps.alpine-target.outputs.root-path }}/var/apk/cache
+        key: alpine-edge-apkcache
+        restore-keys: alpine-edge-apkcache
     - uses: actions/checkout@v3
     - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
       shell: alpine.sh --root {0}
