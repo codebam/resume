@@ -20,7 +20,7 @@ $(FILE)?*.png: $(FILE).pdf
 upload: $(FILE).pdf $(FILE)?*.png
 	mkdir upload
 	cp $(FILE)* upload
-	$(GHR) "$$(date +'%s')" upload
+	$(GHR) -u codebam "$$(date +'%s')" upload
 
 .PHONY: clean
 clean:
