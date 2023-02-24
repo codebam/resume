@@ -20,6 +20,7 @@ jobs:
         path: |
           ${{ steps.alpine-target.outputs.root-path }}/etc/apk
           ${{ steps.alpine-target.outputs.root-path }}$HOME/.cache/Tectonic
+          ${{ steps.alpine-target.outputs.root-path }}$HOME/go
         key: alpine-edge-cache
     - uses: actions/checkout@v3
     - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
@@ -34,4 +35,5 @@ jobs:
         path: |
           ${{ steps.alpine-target.outputs.root-path }}/etc/apk
           ${{ steps.alpine-target.outputs.root-path }}$HOME/.cache/Tectonic
+          ${{ steps.alpine-target.outputs.root-path }}$HOME/go
         key: alpine-edge-cache
