@@ -20,8 +20,8 @@ jobs:
         path: |
           ${{ steps.alpine-target.outputs.root-path }}/gopath
           ${{ steps.alpine-target.outputs.root-path }}/tectonic/.cache/Tectonic
-        key: alpine-edge-apkcache
-        restore-keys: alpine-edge-apkcache
+        key: alpine-edge-tectonic
+        restore-keys: alpine-edge-tectonic
     - uses: actions/checkout@v3
     - run: apk add git imagemagick go tectonic make; GOPATH=/gopath go install github.com/tcnksm/ghr@latest
       shell: alpine.sh --root {0}
