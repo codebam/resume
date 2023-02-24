@@ -18,7 +18,8 @@ jobs:
       uses: actions/cache/restore@v3
       with:
         path: |
-          ${{ steps.alpine-target.outputs.root-path }}
+          ${{ steps.alpine-target.outputs.root-path }}/etc/apk
+          ${{ steps.alpine-target.outputs.root-path }}/root
         key: alpine-edge-cache
     - uses: actions/checkout@v3
     - run: apk add git imagemagick go tectonic make; go install github.com/tcnksm/ghr@latest
@@ -31,5 +32,6 @@ jobs:
       uses: actions/cache/save@v3
       with:
         path: |
-          ${{ steps.alpine-target.outputs.root-path }}
+          ${{ steps.alpine-target.outputs.root-path }}/etc/apk
+          ${{ steps.alpine-target.outputs.root-path }}/root
         key: alpine-edge-cache
