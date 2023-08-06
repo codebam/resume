@@ -23,7 +23,7 @@ jobs:
         key: alpine-edge-tectonic-${{ hashFiles('/home/runner/work/_temp/gopath/**/*', '/home/runner/work/_temp/tectonic/**/*') }}
         restore-keys: alpine-edge-tectonic-
     - uses: actions/checkout@v3
-    - run: apk add git imagemagick go tectonic make; GOPATH=/home/runner/work/_temp/gopath go install github.com/tcnksm/ghr@latest
+    - run: apk add git imagemagick go ghostscript tectonic make; GOPATH=/home/runner/work/_temp/gopath go install github.com/tcnksm/ghr@latest
       shell: alpine.sh --root {0}
     - run: export HOME=/home/runner/work/_temp/tectonic export PATH=/home/runner/work/_temp/gopath/bin:$PATH; make upload
       shell: alpine.sh --root {0}
