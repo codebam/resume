@@ -1,7 +1,7 @@
 # LaTeX Makefile
 FILE=resume
 TECTONIC=tectonic
-CONVERT=convert
+CONVERT=magick convert
 GHR=ghr
 USER=codebam
 REPO=resume
