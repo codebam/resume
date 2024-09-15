@@ -16,8 +16,8 @@ $(FILE).pdf: $(FILE).tex
 
 $(FILE)?*.png: $(FILE).pdf
 	rm -rf $(FILE)*.png
-	$(CONVERT) -density 300 $(FILE).pdf $(FILE).png
-	$(CONVERT) -density 300 $(FILE)*.png -background white -alpha remove $(FILE)-white.png
+	$(CONVERT) -density 300 $(FILE).pdf -quality 100 $(FILE).png
+	$(CONVERT) -density 300 $(FILE)*.png -background white -alpha remove -quality 100 $(FILE)-white.png
 
 upload: $(FILE).pdf $(FILE)?*.png
 	mkdir upload
